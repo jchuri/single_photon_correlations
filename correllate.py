@@ -1,8 +1,15 @@
 from collections import Counter
+import numpy as np
+from numpy.core.fromnumeric import transpose
 
 def calculate_N_c(chA, chB) :
     difference_matrix = [y for j in chB for i in chA if (y:=j-i) >= 0]
     return dict(Counter(difference_matrix))
+
+    
+def calculate_Nc_np(chA, chB): 
+    return dict(Counter(chB - np.transpose(chA)))
+
 
 def calculate_g2(tau_c , T , chA, chB) :
     N_0 = (len(chA) + len(chB)) / 2
