@@ -1,7 +1,7 @@
 from collections import Counter
 
 def calculate_N_c(chA, chB) :
-    difference_matrix = [j - i for j in chB for i in chA]
+    difference_matrix = [y for j in chB for i in chA if (y:=j-i) >= 0]
     return dict(Counter(difference_matrix))
 
 def calculate_g2(tau_c , T , chA, chB) :
