@@ -1,10 +1,10 @@
 from collections import Counter
 
-def calculate_N_c(chA:list[int], chB:list[int]) -> dict[int,int]:
+def calculate_N_c(chA, chB) :
     difference_matrix = [j - i for j in chB for i in chA]
     return dict(Counter(difference_matrix))
 
-def calculate_g2(tau_c : int, T : int, chA:list[int], chB:list[int]) -> dict[int, float]:
+def calculate_g2(tau_c , T , chA, chB) :
     N_0 = (len(chA) + len(chB)) / 2
     normalization_const = T / (tau_c * N_0**2)
     Nc = calculate_N_c(chA, chB)
